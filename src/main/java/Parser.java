@@ -3,6 +3,9 @@ import java.net.URL;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+
+import org.jsoup.select.Elements;
 
 public class Parser {
     private static Document getPage() throws IOException{
@@ -12,7 +15,13 @@ public class Parser {
     }
 
     public static void main(String[] args) throws IOException{
-        System.out.println(getPage());
+        Document page = getPage();
+
+        Element table = page.select("table[class=weather]").first();
+        //System.out.println(table);
+        Elements names = table.select("td[class=day]");
+        String date  ;
+        System.out.println(names);
 
 }
 }
