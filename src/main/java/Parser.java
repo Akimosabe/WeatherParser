@@ -7,6 +7,9 @@ import org.jsoup.nodes.Element;
 
 import org.jsoup.select.Elements;
 
+//import java.time.LocalDate;
+//import java.time.LocalTime;
+
 public class Parser {
     private static Document getPage() throws IOException{
          String url = "https://ekaterinburg.nuipogoda.ru/погода-на-сегодня";
@@ -43,7 +46,32 @@ public class Parser {
         String tempText = tempTextElement.text();
         //Вытаскиваем описание погоды
 
-        System.out.println(date+time+temperature+wind+windspeed+tempText);
+
+
+
+        String[] timeArr = new String[timeElement.size()];
+        for (int i = 0; i < timeElement.size(); i++) {
+            timeArr[i] = timeElement.get(i).text();
+        }
+
+        String[] temperatureArr = new String[temperatureElement.size()];
+        for (int i = 0; i < temperatureElement.size(); i++) {
+            temperatureArr[i] = temperatureElement.get(i).text();
+        }
+
+        String[] windArr = new String[windElement.size()];
+        for (int i = 0; i < windElement.size(); i++) {
+            windArr[i] = windElement.get(i).text();
+        }
+
+        String[] tempTextArr = new String[tempTextElement.size()];
+        for (int i = 0; i < tempTextElement.size(); i++) {
+            tempTextArr[i] = tempTextElement.get(i).text();
+            }
+        //Делаем массивы для упрощения вывода текста в нужном мне формате
+        System.out.println(temperatureArr);
+
+
 
 }
 }
