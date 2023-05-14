@@ -7,6 +7,8 @@ import org.jsoup.nodes.Element;
 
 import org.jsoup.select.Elements;
 
+import javax.mail.MessagingException;
+
 //import java.time.LocalDate;
 //import java.time.LocalTime;
 
@@ -17,7 +19,7 @@ public class Parser {
          return page;
     }
 
-    public static void main(String[] args) throws IOException{
+    public static void main(String[] args) throws MessagingException, IOException{
         Document page = getPage();
 
         Element table = page.select("table[class=weather]").first();
@@ -87,6 +89,12 @@ public class Parser {
         /*for (int i = 0; i < tempTextArr.length; i++) {
             System.out.printf(tempTextArr[i]);}*/
 
-
+        String who = "he7seven@gmail.com";
+        String subject = "Погода на сегодня";
+        String message = date + "\n";
+        for (int i = 0; i < timeArr.length; i++) {
+            message += String.format("%-5s    %-4s    %-4s    %-3s%n", timeArr[i], temperatureArr[i], windArr[i], windspeedArr[i]);
+        }
+        Email.sendEmail(who, subject, message);
 }
 }
