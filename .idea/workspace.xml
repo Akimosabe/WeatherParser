@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f2c9bca2-b283-4fbd-a720-7ceb5d8fa4cf" name="Changes" comment="made arrays">
+    <list default="true" id="f2c9bca2-b283-4fbd-a720-7ceb5d8fa4cf" name="Changes" comment="need to fix the arrays">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Parser.java" afterDir="false" />
     </list>
@@ -117,7 +117,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684066397009</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="need to fix the arrays">
+      <created>1684068586592</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1684068586592</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -137,19 +144,25 @@
     <MESSAGE value="add data" />
     <MESSAGE value="add all elements" />
     <MESSAGE value="made arrays" />
-    <option name="LAST_COMMIT_MESSAGE" value="made arrays" />
+    <MESSAGE value="need to fix the arrays" />
+    <option name="LAST_COMMIT_MESSAGE" value="need to fix the arrays" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/Parser.java</url>
-          <line>22</line>
+          <line>19</line>
           <properties class="Parser" method="main">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Parser.java</url>
+          <line>12</line>
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

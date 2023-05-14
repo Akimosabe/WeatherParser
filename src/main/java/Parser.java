@@ -24,31 +24,30 @@ public class Parser {
         //System.out.println(table);
         //Elements names = table.select("td[class=day]");
 
+        //Вытаскиваем дату текстом
         Element dateElement = table.select("td.day span").last();
         String date = dateElement.text() ;
-        //Вытаскиваем дату текстом
 
+        //Вытаскиваем время
         Elements timeElement = table.select("span[class=c1]");
         String time = timeElement.text() ;
-        //Вытаскиваем время
 
+        //Вытаскиваем температуру
         Elements temperatureElement = table.select("span[class=ht]");
         String temperature = temperatureElement.text() ;
-        //Вытаскиваем температуру
 
+        //Вытаскиваем ветер
         Elements windElement = table.select("span[class=wd]");
         String wind = windElement.text();
         Elements windspeedElement = table.select("span[class=ws]");
         String windspeed = windspeedElement.text();
-        //Вытаскиваем ветер
 
+//Вытаскиваем описание погоды ! С этим проблемы, т. к данный текст невозоможно нормально преобразовать в массив, необходимо исправить
         Elements tempTextElement = table.select("div");
         String tempText = tempTextElement.text();
-        //Вытаскиваем описание погоды
 
 
-
-
+        //Делаем массивы для упрощения вывода текста в нужном мне формате
         String[] timeArr = new String[timeElement.size()];
         for (int i = 0; i < timeElement.size(); i++) {
             timeArr[i] = timeElement.get(i).text();
@@ -69,22 +68,20 @@ public class Parser {
             windspeedArr[i] = windspeedElement.get(i).text();
         }
 
+        /*
         String[] tempTextArr = new String[tempTextElement.size()];
         for (int i = 0; i < tempTextElement.size(); i++) {
             tempTextArr[i] = tempTextElement.get(i).text();
             }
-        //Делаем массивы для упрощения вывода текста в нужном мне формате
+            С этим массивом проблемы
+            */
+
+        System.out.println(date);
 
 
-        System.out.println(tempTextArr.length);
-
-
-
-        /*
         for (int i = 0; i < timeArr.length; i++) {
-            System.out.printf("%s\t%s\t%s\t%s%n", timeArr[i], temperatureArr[i], windArr[i], tempTextArr[i]);
+            System.out.printf("%-5s    %-4s    %-4s    %-3s%n", timeArr[i], temperatureArr[i], windArr[i], windspeedArr[i]);
         }
-        */
         //выводим элементы массива
 
         /*for (int i = 0; i < tempTextArr.length; i++) {
