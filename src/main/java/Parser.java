@@ -64,13 +64,31 @@ public class Parser {
             windArr[i] = windElement.get(i).text();
         }
 
+        String[] windspeedArr = new String[windspeedElement.size()];
+        for (int i = 0; i < windspeedElement.size(); i++) {
+            windspeedArr[i] = windspeedElement.get(i).text();
+        }
+
         String[] tempTextArr = new String[tempTextElement.size()];
         for (int i = 0; i < tempTextElement.size(); i++) {
             tempTextArr[i] = tempTextElement.get(i).text();
             }
         //Делаем массивы для упрощения вывода текста в нужном мне формате
-        System.out.println(temperatureArr);
 
+
+        System.out.println(tempTextArr.length);
+
+
+
+        /*
+        for (int i = 0; i < timeArr.length; i++) {
+            System.out.printf("%s\t%s\t%s\t%s%n", timeArr[i], temperatureArr[i], windArr[i], tempTextArr[i]);
+        }
+        */
+        //выводим элементы массива
+
+        /*for (int i = 0; i < tempTextArr.length; i++) {
+            System.out.printf(tempTextArr[i]);}*/
 
 
 }

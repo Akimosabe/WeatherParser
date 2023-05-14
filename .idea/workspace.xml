@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f2c9bca2-b283-4fbd-a720-7ceb5d8fa4cf" name="Changes" comment="add all elements">
+    <list default="true" id="f2c9bca2-b283-4fbd-a720-7ceb5d8fa4cf" name="Changes" comment="made arrays">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Parser.java" afterDir="false" />
     </list>
@@ -110,7 +110,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684065555018</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="made arrays">
+      <created>1684066397009</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1684066397009</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -129,19 +136,15 @@
     <MESSAGE value="start" />
     <MESSAGE value="add data" />
     <MESSAGE value="add all elements" />
-    <option name="LAST_COMMIT_MESSAGE" value="add all elements" />
+    <MESSAGE value="made arrays" />
+    <option name="LAST_COMMIT_MESSAGE" value="made arrays" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Parser.java</url>
-          <line>12</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/Parser.java</url>
-          <line>19</line>
+          <line>22</line>
           <properties class="Parser" method="main">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
