@@ -8,6 +8,7 @@ public class Email {
     public static void sendEmail(String recipient, String subject, String message) throws MessagingException {
 
         // Настройки почтового сервера
+
         Properties props = new Properties();
         props.put("mail.smtp.host", "smtp.yandex.ru");
         props.put("mail.smtp.port", "465");
@@ -16,8 +17,8 @@ public class Email {
 
 
         // Аккаунт
-        final String username = "WeatherParserEkb@yandex.ru"; // адрес почты отправителя
-        final String password = "nzwdocfkodgtpvlg"; // пароль от почты отправителя
+        final String username = "WeatherParserEkb@yandex.ru";
+        final String password = "nzwdocfkodgtpvlg";
 
         // Сессия для отправки письма
         Session session = Session.getInstance(props, new Authenticator() {
