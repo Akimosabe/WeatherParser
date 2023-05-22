@@ -8,7 +8,6 @@ public class Email {
     public static void sendEmail(String recipient, String subject, String message) throws MessagingException {
 
         // Настройки почтового сервера
-
         Properties props = new Properties();
         props.put("mail.smtp.host", "smtp.yandex.ru");
         props.put("mail.smtp.port", "465");
