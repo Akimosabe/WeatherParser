@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f2c9bca2-b283-4fbd-a720-7ceb5d8fa4cf" name="Changes" comment="javax.mail added, sending to mail implemented, test passed successfully">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Bot.java" afterDir="false" />
+    <list default="true" id="f2c9bca2-b283-4fbd-a720-7ceb5d8fa4cf" name="Changes" comment="updated pom.xml, added a new bot class, corrected things a bit, now the weather is also in tg">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Email.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Email.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Parser.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -141,7 +138,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684083125725</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="updated pom.xml, added a new bot class, corrected things a bit, now the weather is also in tg">
+      <created>1684666836276</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1684666836276</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -164,15 +168,16 @@
     <MESSAGE value="need to fix the arrays" />
     <MESSAGE value="need to fix the arrays but everything else is fine" />
     <MESSAGE value="javax.mail added, sending to mail implemented, test passed successfully" />
-    <option name="LAST_COMMIT_MESSAGE" value="javax.mail added, sending to mail implemented, test passed successfully" />
+    <MESSAGE value="updated pom.xml, added a new bot class, corrected things a bit, now the weather is also in tg" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated pom.xml, added a new bot class, corrected things a bit, now the weather is also in tg" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/Parser.java</url>
-          <line>18</line>
-          <properties class="Parser" method="main">
+          <line>41</line>
+          <properties class="Parser" method="Sending">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
@@ -180,7 +185,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/Parser.java</url>
-          <line>11</line>
+          <line>10</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>

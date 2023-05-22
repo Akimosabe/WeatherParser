@@ -5,9 +5,8 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import javax.mail.MessagingException;
-
 //import java.time.LocalDate;
-//import java.time.LocalTime;
+import java.time.LocalTime;
 
 public class Parser {
     private static Document getPage() throws IOException{
@@ -16,7 +15,31 @@ public class Parser {
          return page;
     }
 
-    public static void main(String[] args) throws MessagingException, IOException{
+
+    public static void main(String[] args) {
+        while (true) {
+            LocalTime currentTime = LocalTime.now();
+            LocalTime desiredTime = LocalTime.of(6, 10); // Смена времени (не ставить секунды! )
+
+            //if (currentTime.equals(desiredTime)) { не работает из-за секунд
+            if (currentTime.getHour() == desiredTime.getHour() && currentTime.getMinute() == desiredTime.getMinute()) {
+                try {
+                    Sending();
+                } catch (MessagingException | IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            try {
+                Thread.sleep(60000); // Задержка в 1 минуту
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    //Теперь парсинг и отправка будут в отдельном методе (возможно стоит поменять имя), а не в методе main
+    public static void Sending() throws MessagingException, IOException {
         Document page = getPage();
 
         Element table = page.select("table[class=weather]").first();
@@ -117,4 +140,6 @@ public class Parser {
 
 
     }
+
+
 }
