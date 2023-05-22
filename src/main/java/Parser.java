@@ -5,7 +5,6 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import javax.mail.MessagingException;
-//import java.time.LocalDate;
 import java.time.LocalTime;
 
 public class Parser {
@@ -19,7 +18,7 @@ public class Parser {
     public static void main(String[] args) {
         while (true) {
             LocalTime currentTime = LocalTime.now();
-            LocalTime desiredTime = LocalTime.of(6, 10); // Смена времени (не ставить секунды! )
+            LocalTime desiredTime = LocalTime.of(22, 43); // Смена времени (не ставить секунды!)
 
             //if (currentTime.equals(desiredTime)) { не работает из-за секунд
             if (currentTime.getHour() == desiredTime.getHour() && currentTime.getMinute() == desiredTime.getMinute()) {
@@ -64,57 +63,53 @@ public class Parser {
         Elements windspeedElement = table.select("span[class=ws]");
         String windspeed = windspeedElement.text();
 
-       /* Вытаскиваем описание погоды
-        С этим проблемы, нужный текст достается, но совершенно непонятно как потом его преобразовать в массив из-за
-        большого количества пробелов, возмно стоит вытащить каждый элемент страницы по отдельности...
-
+        //Вытаскиваем описание погоды
         Elements tempTextElement = table.select("div");
         String tempText = tempTextElement.text();
-       */
 
         //Делаем массивы для упрощения вывода текста в нужном мне формате
+
+        //Время
         String[] timeArr = new String[timeElement.size()];
         for (int i = 0; i < timeElement.size(); i++) {
             timeArr[i] = timeElement.get(i).text();
         }
-
+        //Температура
         String[] temperatureArr = new String[temperatureElement.size()];
         for (int i = 0; i < temperatureElement.size(); i++) {
             temperatureArr[i] = temperatureElement.get(i).text();
         }
-
+        //Ветер
         String[] windArr = new String[windElement.size()];
         for (int i = 0; i < windElement.size(); i++) {
             windArr[i] = windElement.get(i).text();
         }
-
+        //Скорость ветра
         String[] windspeedArr = new String[windspeedElement.size()];
         for (int i = 0; i < windspeedElement.size(); i++) {
             windspeedArr[i] = windspeedElement.get(i).text();
         }
+        //Описание погоды
+        String[] tempTextArr = tempText.split("   "); // 3 пробела!
+        for (int i = 0, j = 0; i < tempTextArr.length; i += 4, j++) {
+            tempTextArr[j] = tempTextArr[i];
+        }
 
-        /*
-        String[] tempTextArr = new String[tempTextElement.size()];
-        for (int i = 0; i < tempTextElement.size(); i++) {
-            tempTextArr[i] = tempTextElement.get(i).text();
-            }
-
-        С этим массивом проблемы
-        */
 
         System.out.println(date);
-
-
         for (int i = 0; i < timeArr.length; i++) {
-            System.out.printf("%-5s    %-4s    %-4s    %-3s%n", timeArr[i], temperatureArr[i], windArr[i], windspeedArr[i]);
+            System.out.printf("%-5s    %-4s    %-4s    %-3s    %s%n", timeArr[i], temperatureArr[i], windArr[i], windspeedArr[i], tempTextArr[i]);
         }
         //Выводим элементы массива
-
 
         /*
         for (int i = 0; i < tempTextArr.length; i++) {
             System.out.printf(tempTextArr[i]);}
         Проверка количества элементов в массиве
+
+        for (int i = 0; i < tempTextArr.length; i++) {
+            System.out.printf(tempTextArr[i]);}
+        Вывод массива
         */
 
         //Отправка в телеграмм
@@ -123,7 +118,7 @@ public class Parser {
         Bot bot = new Bot(botToken);
         String telegramMessage = date + "\n";
         for (int i = 0; i < timeArr.length; i++) {
-            telegramMessage += String.format("%-5s    %-4s    %-4s    %-3s%n", timeArr[i], temperatureArr[i], windArr[i], windspeedArr[i]);
+            telegramMessage += String.format("%-5s    %-4s    %-4s    %-3s    %s%n", timeArr[i], temperatureArr[i], windArr[i], windspeedArr[i], tempTextArr[i]);
         }
         bot.sendMessageToChat(chatId, telegramMessage);
         // В <dependency> пришлось добавлять ch.qos.logback , без этого  все работало, но вываливалась ошибка
@@ -134,7 +129,7 @@ public class Parser {
         String subject = "Погода на сегодня";
         String message = date + "\n";
         for (int i = 0; i < timeArr.length; i++) {
-            message += String.format("%-5s    %-4s    %-4s    %-3s%n", timeArr[i], temperatureArr[i], windArr[i], windspeedArr[i]);
+            message += String.format("%-5s    %-4s    %-4s    %-3s    %s%n", timeArr[i], temperatureArr[i], windArr[i], windspeedArr[i], tempTextArr[i]);
         }
         Email.sendEmail(who, subject, message);
 
