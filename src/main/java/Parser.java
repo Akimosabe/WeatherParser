@@ -18,7 +18,7 @@ public class Parser {
     public static void main(String[] args) {
         while (true) {
             LocalTime currentTime = LocalTime.now();
-            LocalTime desiredTime = LocalTime.of(22, 43); // Смена времени (не ставить секунды!)
+            LocalTime desiredTime = LocalTime.of(18,39); // Смена времени (не ставить секунды!)
 
             //if (currentTime.equals(desiredTime)) { не работает из-за секунд
             if (currentTime.getHour() == desiredTime.getHour() && currentTime.getMinute() == desiredTime.getMinute()) {
@@ -47,15 +47,15 @@ public class Parser {
 
         //Вытаскиваем дату текстом
         Element dateElement = table.select("td.day span").last();
-        String date = dateElement.text() ;
+        String date = dateElement.text();
 
         //Вытаскиваем время
         Elements timeElement = table.select("span[class=c1]");
-        String time = timeElement.text() ;
+        String time = timeElement.text();
 
         //Вытаскиваем температуру
         Elements temperatureElement = table.select("span[class=ht]");
-        String temperature = temperatureElement.text() ;
+        String temperature = temperatureElement.text();
 
         //Вытаскиваем ветер
         Elements windElement = table.select("span[class=wd]");
@@ -96,11 +96,21 @@ public class Parser {
         }
 
 
-        System.out.println(date);
+        System.out.println(date +" 📅");
         for (int i = 0; i < timeArr.length; i++) {
-            System.out.printf("%-5s    %-4s    %-4s    %-3s    %s%n", timeArr[i], temperatureArr[i], windArr[i], windspeedArr[i], tempTextArr[i]);
+            String timeEmoji = Emoji.getTimeEmoji(timeArr[i]);
+            String temperatureEmoji = Emoji.getTemperatureEmoji(temperatureArr[i]);
+
+            String output = String.format("%s\t%-9s\t%-7s\t%-3s\t%-6s\t%s\t%s",
+                    timeEmoji, timeArr[i], temperatureArr[i], temperatureEmoji, windArr[i], windspeedArr[i], tempTextArr[i]);
+
+            System.out.println(output);
         }
-        //Выводим элементы массива
+
+//            System.out.println(date);
+//            for (int i = 0; i < timeArr.length; i++) {
+//                System.out.printf("%-5s    %-4s    %-4s    %-3s    %s%n", timeArr[i], temperatureArr[i], windArr[i], windspeedArr[i], tempTextArr[i]);
+//            }
 
         /*
         for (int i = 0; i < tempTextArr.length; i++) {
@@ -112,29 +122,45 @@ public class Parser {
         Вывод массива
         */
 
-        //Отправка в телеграмм
-        String botToken = "6250795881:AAGMufC9SHW2lZl0cdBm07_jz2Kylaa3fOQ";
-        String chatId = "-1001912806627";
-        Bot bot = new Bot(botToken);
-        String telegramMessage = date + "\n";
+            //Отправка в телеграмм
+            String botToken = "6250795881:AAGMufC9SHW2lZl0cdBm07_jz2Kylaa3fOQ";
+            String chatId = "-1001912806627";
+            Bot bot = new Bot(botToken);
+
+        StringBuilder telegramMessage = new StringBuilder();
+        telegramMessage.append(date).append("  📅").append("\n\n");
         for (int i = 0; i < timeArr.length; i++) {
-            telegramMessage += String.format("%-5s    %-4s    %-4s    %-3s    %s%n", timeArr[i], temperatureArr[i], windArr[i], windspeedArr[i], tempTextArr[i]);
+            String timeEmoji = Emoji.getTimeEmoji(timeArr[i]);
+            String temperatureEmoji = Emoji.getTemperatureEmoji(temperatureArr[i]);
+
+            String output = String.format("%s\t%-9s\t%-4s\t%-2s\t\t\t%-6s\t%s",
+                    timeEmoji, timeArr[i],temperatureArr[i], temperatureEmoji, windspeedArr[i], windArr[i]);
+            telegramMessage.append(output).append("\n");
         }
-        bot.sendMessageToChat(chatId, telegramMessage);
-        // В <dependency> пришлось добавлять ch.qos.logback , без этого  все работало, но вываливалась ошибка
+            bot.sendMessageToChat(chatId, telegramMessage.toString());
+            // В <dependency> пришлось добавлять ch.qos.logback , без этого  все работало, но вываливалась ошибка
+
 
 
         //Отправка на почту
-        String who = "he7seven@gmail.com"; //akimosabe@yandex.ru umbrellacademy@mail.ru
+        String who = "he7seven@gmail.com"; //akimosabe@yandex.ru umbrellacademy@mail.ru  he7seven@gmail.com
         String subject = "Погода на сегодня";
-        String message = date + "\n";
+
+        StringBuilder message = new StringBuilder();
+        message.append(date).append(" 📅").append("\n");
+
         for (int i = 0; i < timeArr.length; i++) {
-            message += String.format("%-5s    %-4s    %-4s    %-3s    %s%n", timeArr[i], temperatureArr[i], windArr[i], windspeedArr[i], tempTextArr[i]);
+            String timeEmoji = Emoji.getTimeEmoji(timeArr[i]);
+            String temperatureEmoji = Emoji.getTemperatureEmoji(temperatureArr[i]);
+
+            String output = String.format("%-1s %-8s  %-3s%s    %-6s     %3s     %2s",
+                    timeEmoji, timeArr[i], temperatureEmoji, temperatureArr[i], windspeedArr[i], windArr[i], tempTextArr[i]);
+            message.append(output).append("\n");
         }
-        Email.sendEmail(who, subject, message);
+            Email.sendEmail(who, subject, message.toString());
+
+
+        }
 
 
     }
-
-
-}

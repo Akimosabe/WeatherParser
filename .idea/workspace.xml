@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f2c9bca2-b283-4fbd-a720-7ceb5d8fa4cf" name="Changes" comment="microfix">
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+    <list default="true" id="f2c9bca2-b283-4fbd-a720-7ceb5d8fa4cf" name="Changes" comment="finally tempTextArr (left to add emoji 🌚)">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Emoji.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Parser.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -145,7 +146,35 @@
       <option name="project" value="LOCAL" />
       <updated>1684666836276</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="timer added">
+      <created>1684772839493</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1684772839493</updated>
+    </task>
+    <task id="LOCAL-00012" summary="microfix">
+      <created>1684772963397</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1684772963397</updated>
+    </task>
+    <task id="LOCAL-00013" summary="microfix">
+      <created>1684773133928</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1684773133928</updated>
+    </task>
+    <task id="LOCAL-00014" summary="finally tempTextArr (left to add emoji 🌚)">
+      <created>1684777813280</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1684777813280</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -169,24 +198,18 @@
     <MESSAGE value="need to fix the arrays but everything else is fine" />
     <MESSAGE value="javax.mail added, sending to mail implemented, test passed successfully" />
     <MESSAGE value="updated pom.xml, added a new bot class, corrected things a bit, now the weather is also in tg" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated pom.xml, added a new bot class, corrected things a bit, now the weather is also in tg" />
+    <MESSAGE value="timer added" />
+    <MESSAGE value="microfix" />
+    <MESSAGE value="finally tempTextArr (left to add emoji )" />
+    <option name="LAST_COMMIT_MESSAGE" value="finally tempTextArr (left to add emoji )" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/Parser.java</url>
-          <line>41</line>
-          <properties class="Parser" method="Sending">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/Parser.java</url>
-          <line>10</line>
-          <option name="timeStamp" value="5" />
+          <line>9</line>
+          <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
