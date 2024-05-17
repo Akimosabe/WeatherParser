@@ -1,1 +1,1 @@
-Course work for 2 semesters
+Course work of the second semester
