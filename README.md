@@ -1,1 +1,1 @@
-Курсовая работа 2 семестра
+Course work for 2 semesters
